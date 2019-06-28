@@ -18,7 +18,8 @@ class TodoServiceApplication(val tr: TodoRepository) {
                 listOf(
                         Todo(description = "todo 0"),
                         Todo(description = "todo 1"),
-                        Todo(description = "todo 2")
+                        Todo(description = "todo 2"),
+                        Todo(description = "todo 3")
                 )
         )
     }
