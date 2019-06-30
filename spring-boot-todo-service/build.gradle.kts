@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	kotlin("plugin.jpa") version "1.3.31"
-	id("org.springframework.boot") version "2.2.0.M3"
+	id("org.springframework.boot") version "2.1.6.RELEASE"
 	id("io.spring.dependency-management") version "1.0.7.RELEASE"
-	kotlin("jvm") version "1.3.31"
-	kotlin("plugin.spring") version "1.3.31"
+	kotlin("jvm") version "1.2.71"
+	kotlin("plugin.spring") version "1.2.71"
+	kotlin("plugin.jpa") version "1.2.71"
 }
 
 group = "com.example"
@@ -25,10 +25,12 @@ repositories {
 	maven { url = uri("https://repo.spring.io/milestone") }
 }
 
-extra["springCloudVersion"] = "Hoxton.BUILD-SNAPSHOT"
+extra["springCloudVersion"] = "Greenwich.SR1"
 
 dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
+	implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	compile(group="io.springfox", name= "springfox-swagger-ui", version= "2.9.2")
 	compile(group= "io.springfox", name= "springfox-swagger2", version= "2.9.2")

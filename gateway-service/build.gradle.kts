@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.2.0.M4"
+	id("org.springframework.boot") version "2.1.6.RELEASE"
 	id("io.spring.dependency-management") version "1.0.7.RELEASE"
-	kotlin("jvm") version "1.3.31"
-	kotlin("plugin.spring") version "1.3.31"
+	kotlin("jvm") version "1.2.71"
+	kotlin("plugin.spring") version "1.2.71"
+	kotlin("plugin.jpa") version "1.2.71"
 }
 
 group = "com.example"
@@ -25,14 +26,15 @@ repositories {
 }
 
 extra["springCloudServicesVersion"] = "2.1.4.RELEASE"
-extra["springCloudVersion"] = "Hoxton.BUILD-SNAPSHOT"
+extra["springCloudVersion"] = "Greenwich.SR1"
 
 dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-ribbon")
 	compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation("org.springframework.cloud:spring-cloud-starter-config")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	//implementation("org.springframework.boot:spring-boot-starter-amqp")
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -44,7 +46,7 @@ dependencies {
 	//implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul")
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
-	//implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
+	implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 	implementation("org.springframework.data:spring-data-rest-hal-browser")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
