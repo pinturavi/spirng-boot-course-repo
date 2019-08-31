@@ -1,0 +1,3 @@
+rabbitmqctl add_user YOUR_USERNAME YOUR_PASSWORD
+$ rabbitmqctl set_user_tags YOUR_USERNAME administrator
+$ rabbitmqctl set_permissions -p / YOUR_USERNAME ".*" ".*" ".*"

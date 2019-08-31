@@ -1,0 +1,12 @@
+applications:
+  - name: todo-service
+    memory: 1G
+    routes:
+      - route: todo-service-pintu.cfapps.io
+    path: build/libs/todo-service-0.0.1-SNAPSHOT.jar
+    env:
+      spring.profiles.active: cloud
+    services:
+      - eureka
+      - rabbitmq
+      - config

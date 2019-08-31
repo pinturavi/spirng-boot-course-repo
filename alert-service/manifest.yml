@@ -1,0 +1,13 @@
+applications:
+  - name: alert-service
+    memory: 700M
+    routes:
+      - route: alert-service-pintu.cfapps.io
+    path: build/libs/alert-service-0.0.1-SNAPSHOT.jar
+    env:
+      spring.profiles.active: cloud
+      server.port: 7000
+    services:
+      - eureka
+      - rabbitmq
+      - config
