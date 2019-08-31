@@ -1,6 +1,9 @@
 package com.example.cartservice.model
 
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.OneToMany
 
 @Entity
 data class CustomerOrder(
@@ -10,7 +13,8 @@ data class CustomerOrder(
 
         var customerId:String?=null,
 
-        @OneToOne(fetch = FetchType.EAGER, cascade = [CascadeType.REMOVE])
-        @JoinColumn(name = "cartId")
-        var cart: Cart?=null
+        @OneToMany(mappedBy = "customerOrder", orphanRemoval=true)
+        var items:List<OrderItem>?= listOf(),
+
+        var location:String=""
 )

@@ -1,0 +1,8 @@
+*spring-boot-todo-service/build/
+*.bin
+.idea
+*.lock
+*.class
+*.tab
+*.at
+*.len

@@ -26,6 +26,7 @@ repositories {
 }
 
 extra["springCloudVersion"] = "Greenwich.SR1"
+extra["springCloudServicesVersion"] = "2.1.4.RELEASE"
 
 dependencies {
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
@@ -37,8 +38,9 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
-	implementation("org.springframework.boot:spring-boot-starter-hateoas")
+	//implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.cloud:spring-cloud-netflix-eureka-client")
+	//implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -55,6 +57,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+		mavenBom("io.pivotal.spring.cloud:spring-cloud-services-dependencies:${property("springCloudServicesVersion")}")
 	}
 }
 

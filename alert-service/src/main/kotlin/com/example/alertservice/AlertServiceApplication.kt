@@ -19,10 +19,10 @@ class AlertServiceApplication{
 		val SFG_MESSAGE_QUEUE = "sfg-message-queue"
 	}
 
-	@Bean
+	/*@Bean
 	fun commandLinerunner(emailService:EmailService)=CommandLineRunner{
 		emailService.sendEmail(mapOf("text" to "Hello pintu!!"))
-	}
+	}*/
 	@Bean
 	internal fun queue(): Queue {
 		return Queue(SFG_MESSAGE_QUEUE, false)

@@ -11,6 +11,6 @@ data class Cart(
         @Column(unique = true)
         var customerId:String?=null,
 
-        @OneToMany(mappedBy = "cart", cascade = [CascadeType.ALL],fetch=FetchType.EAGER)
+        @OneToMany(mappedBy = "cart", orphanRemoval=true)
         var items:List<Item> = listOf()
 )

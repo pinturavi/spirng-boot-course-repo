@@ -6,6 +6,7 @@ import com.example.todoservice.model.Todo
 import com.example.todoservice.repo.TodoRepository
 import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.web.bind.annotation.*
+import java.lang.RuntimeException
 import javax.validation.Valid
 
 @RestController
@@ -23,9 +24,13 @@ class TodoController(val tr: TodoRepository, val rabbitTemplate:RabbitTemplate) 
 
     @PutMapping
     fun updateTodo(@RequestBody @Valid todo: Todo):Todo {
-        val todo = tr.save(todo)
-        rabbitTemplate.convertAndSend(TodoServiceApplication.SFG_MESSAGE_QUEUE, mapOf("text" to "Hey!! it works!."))
-        return todo
+        val previousStatus = tr.findById(todo.id).map { it.status }.orElseThrow { RuntimeException("Todo is invalid, it has no status") }
+        val todoFromDb = tr.save(todo)
+        if(previousStatus != todoFromDb.status){
+            val msgMap = mapOf("text" to "todo with id ${todoFromDb.id}'s status changed from $previousStatus to ${todoFromDb.status}")
+            rabbitTemplate.convertAndSend(TodoServiceApplication.SFG_MESSAGE_QUEUE, msgMap)
+        }
+        return tr.save(todo)
     }
 
     @DeleteMapping("/{id}")

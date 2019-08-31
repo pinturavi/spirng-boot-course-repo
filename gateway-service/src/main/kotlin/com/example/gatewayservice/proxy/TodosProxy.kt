@@ -8,8 +8,9 @@ import javax.validation.Valid
 
 @RibbonClient("todo-service")
 @FeignClient("todo-service")
+@RequestMapping("/api/todos")
 interface TodosProxy{
-    @GetMapping("/api/todos")
+    @GetMapping
     fun retrieveAllTodos():List<Todo>
 
     @GetMapping("/{id}")

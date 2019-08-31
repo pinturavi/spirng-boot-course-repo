@@ -1,3 +1,0 @@
-package com.example.shoppingcartservice.controller
-
-class ProductController

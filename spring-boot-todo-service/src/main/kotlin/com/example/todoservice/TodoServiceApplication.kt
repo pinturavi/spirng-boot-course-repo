@@ -37,7 +37,8 @@ class TodoServiceApplication(val tr: TodoRepository) {
                         Todo(description = "todo 0"),
                         Todo(description = "todo 1"),
                         Todo(description = "todo 2"),
-                        Todo(description = "todo 3")
+                        Todo(description = "todo 3"),
+                        Todo(description = "todo 5")
                 )
         )
     }

@@ -34,8 +34,13 @@ dependencies {
 	compile("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.cloud:spring-cloud-starter-config")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-amqp")
+	compile(group="io.springfox", name= "springfox-swagger-ui", version= "2.9.2")
+	compile(group= "io.springfox", name= "springfox-swagger2", version= "2.9.2")
+	compile(group="com.google.code.gson", name= "gson", version= "2.8.4")
 	implementation("org.springframework.boot:spring-boot-starter-hateoas")
+	implementation("org.springframework.boot:spring-boot-starter-data-redis"){
+		exclude(group="io.lettuce", module="lettuce-core")
+	}
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	//implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
@@ -46,8 +51,8 @@ dependencies {
 	//implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-zuul")
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
-	implementation("org.springframework.cloud:spring-cloud-starter-stream-rabbit")
 	implementation("org.springframework.data:spring-data-rest-hal-browser")
+	implementation("redis.clients", "jedis")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
