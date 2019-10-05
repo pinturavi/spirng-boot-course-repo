@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gw-todo-deployment
+spec:
+  selector:
+    matchLabels:
+      app: gw-todo
+  template:
+    metadata:
+      name: gw-todo
+      labels:
+        app: gw-todo
+    spec:
+      containers:
+        - name: gw-todo
+          image: pinturavi/gw-todo:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: cloud
+            - name: SPRING_CONFIG_URL
+              value: http://192.168.99.117:30088
+
+

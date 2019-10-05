@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cart-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cart
+  template:
+    metadata:
+      name: cart
+      labels:
+        app: cart
+    spec:
+      containers:
+        - name: cart
+          image: pinturavi/cart:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: cloud
+            - name: SPRING_CONFIG_URL
+              value: http://192.168.99.117:30088
+

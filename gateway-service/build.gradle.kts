@@ -43,7 +43,7 @@ dependencies {
 	}
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	//implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
+	implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	//implementation("org.springframework.cloud:spring-cloud-bus")

@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-deployment
+spec:
+  selector:
+    matchLabels:
+      app: config
+  template:
+    metadata:
+      name: config
+      labels:
+        app: config
+    spec:
+      containers:
+        - name: config
+          image: pinturavi/config:latest

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery-deployment
+spec:
+  selector:
+    matchLabels:
+      app: delivery
+  template:
+    metadata:
+      name: delivery
+      labels:
+        app: delivery
+    spec:
+      containers:
+        - name: delivery
+          image: pinturavi/delivery:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: cloud
+            - name: SPRING_CONFIG_URL
+              value: http://192.168.99.117:30088
+
+
+
+
+
+

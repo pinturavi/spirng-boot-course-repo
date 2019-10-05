@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alert-deployment
+spec:
+  selector:
+    matchLabels:
+      app: alert
+  template:
+    metadata:
+      name: alert
+      labels:
+        app: alert
+    spec:
+      containers:
+        - name: alert
+          image: pinturavi/alert:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: cloud
+            - name: EMAIL_PASSWORD
+              value: sRs@541796
+            - name: SPRING_CONFIG_URL
+              value: http://192.168.99.117:30088
+

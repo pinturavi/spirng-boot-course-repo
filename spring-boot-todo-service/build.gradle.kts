@@ -52,6 +52,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 		exclude(group = "junit", module = "junit")
 	}
+	testImplementation("org.junit:junit5-engine:5.0.0-ALPHA")
 }
 
 dependencyManagement {
